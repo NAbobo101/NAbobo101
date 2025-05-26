@@ -103,6 +103,7 @@ a:hover {
   text-align: center;
   font-size: 3.5em; /* Increased font size for emojis */
   font-weight: bold;
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif; /* Added for better emoji rendering */
   margin: 5px;
   display: inline-block;
   background-color: #fff;
