@@ -97,17 +97,17 @@ a:hover {
 
 .reel {
   border: 2px solid #333;
-  width: 80px;
-  height: 80px;
-  line-height: 80px;
+  width: 100px; /* Increased width */
+  height: 100px; /* Increased height */
+  line-height: 100px; /* Adjusted for new height */
   text-align: center;
-  font-size: 2em;
+  font-size: 3.5em; /* Increased font size for emojis */
   font-weight: bold;
   margin: 5px;
   display: inline-block;
   background-color: #fff;
   border-radius: 6px;
-  vertical-align: middle; /* Align reels better */
+  vertical-align: middle;
 }
 
 #spinButton {
@@ -129,55 +129,113 @@ a:hover {
 }
 
 /* Poker Game */
-.poker-container {
-  background-color: #e8f5e9; /* Light green table background */
+.poker-page-container { /* Renamed from .poker-container */
+  /* background-color: #e8f5e9; */ /* Removed, pokerTableContainer will handle its own background if needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.poker-table-area { /* Optional: for more specific styling within poker container */
-    padding: 15px;
-    border-radius: 6px;
-    background-color: #38761d; /* Darker green for the "felt" */
-    color: white; /* Text on felt should be light */
+#pokerTableContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Or a specific max-width */
 }
-.poker-table-area h2, .poker-table-area div, .poker-table-area p {
-    color: white; /* Ensure text on green is white */
+
+#pokerTable {
+  background-color: #006400; /* dark green, like felt */
+  /* border-radius: 100px / 60px; */ /* Oval shape */
+  border-radius: 75px; /* Rounded rectangle, adjust for desired roundness */
+  padding: 20px;
+  margin: 20px auto;
+  position: relative; 
+  width: 700px; /* example dimensions */
+  height: 450px; /* example dimensions */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes bot to top, player to bottom, center area in middle */
+  align-items: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
-.poker-table-area a { /* Links on felt */
-    color: #bbdefb; /* Light blue for links on dark green */
+
+#communityCardArea {
+  text-align: center;
+  margin-bottom: 10px;
+  color: white; /* Text like "Community:" should be white */
+  padding: 10px;
+  background-color: rgba(0,0,0,0.15);
+  border-radius: 8px;
 }
-.poker-table-area a:hover {
-    color: #fff;
+
+#potArea {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+.table-player-area {
+  background-color: rgba(0,0,0,0.2); 
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  width: 200px; /* Give player/bot areas a defined width */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+#playerArea {
+  /* Positioned by flexbox (order or justify-content on parent) */
+}
+
+#bot1Area {
+  /* Positioned by flexbox */
+}
+
+.active-player {
+  border: 3px solid #FFD700; /* Gold border */
+  box-shadow: 0 0 15px #FFD700; /* Gold glow */
 }
 
 
 #playerCards span, 
-#communityCards span, 
-#bot1Cards span {
-  border: 1px solid #aaa;
-  background: #fff;
-  color: #333; /* Card text color */
-  padding: 12px 8px;
+#communityCardArea span, /* Target community card spans directly */
+#bot1Area span[id^="bot1Card"] /* Target bot card spans directly */ {
+  border: 1px solid #777;
+  background: #f9f9f9;
+  color: #333; 
+  padding: 8px 4px; 
   margin: 3px;
   display: inline-block;
-  min-width: 35px;
+  min-width: 50px; /* Increased to fit "10♠️" and padding */
+  min-height: 30px; /* Ensure consistent height */
+  line-height: 30px; /* For vertical centering if needed, adjust with padding */
   text-align: center;
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: 1.1em;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  font-size: 1.8em; /* Increased for emoji clarity */
+  font-weight: normal; /* Emojis might have their own weight, bold might not be necessary */
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  vertical-align: middle; 
 }
 
-#actionButtons {
+/* Redundant rule removed, the one above is sufficient. */
+
+#playerActions { /* Renamed from #actionButtons */
     margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid #a5d6a7; /* Light green separator */
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(0,0,0,0.05); /* Light background for action area */
+    border-radius: 8px;
 }
 
-#actionButtons button {
+#playerActions button {
   margin: 5px;
 }
 
-#potSize, #pokerMessage {
+#pokerMessage { /* Potentially remove #potSize from here if styled via #potArea */
   font-size: 1.1em;
   margin: 10px 0;
   font-weight: bold;

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Constants and Variables
-  const SYMBOLS = ["Cherry", "Lemon", "Bell", "BAR", "7", "Diamond"];
+  const SYMBOLS = ["🍒", "🍋", "🔔", "💰", "⭐", "💎"]; // Cherry, Lemon, Bell, MoneyBag, Star, Diamond
   const COST_PER_SPIN = 1;
   const STARTING_CREDITS = 100;
   let credits = STARTING_CREDITS;
@@ -69,15 +69,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check for Wins
     let winnings = 0;
     if (r1 === r2 && r2 === r3) { // Three of a kind
-      if (r1 === "Cherry") { winnings = 10; }
-      else if (r1 === "Lemon") { winnings = 20; }
-      else if (r1 === "Bell") { winnings = 50; }
-      else if (r1 === "BAR") { winnings = 100; }
-      else if (r1 === "7") { winnings = 250; }
-      else if (r1 === "Diamond") { winnings = 500; }
-    } else if (r1 === "Cherry" && r2 === "Cherry") {
+      if (r1 === "🍒") { winnings = 10; } // Cherry
+      else if (r1 === "🍋") { winnings = 20; } // Lemon
+      else if (r1 === "🔔") { winnings = 50; } // Bell
+      else if (r1 === "💰") { winnings = 100; } // MoneyBag (replaces BAR)
+      else if (r1 === "⭐") { winnings = 250; } // Star (replaces 7)
+      else if (r1 === "💎") { winnings = 500; } // Diamond
+    } else if (r1 === "🍒" && r2 === "🍒") {
       winnings = 3; // Two cherries (first two reels)
-    } else if (r1 === "Cherry") {
+    } else if (r1 === "🍒") {
       winnings = 1; // One cherry (on the first reel)
     }
     // Note: The original spec said "One cherry (any position)".

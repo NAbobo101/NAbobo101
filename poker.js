@@ -2,10 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // I. Constants & Variables
   const SUITS = ['H', 'D', 'C', 'S']; // Hearts, Diamonds, Clubs, Spades
   const RANKS = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A']; // T=10
+  const SUIT_EMOJIS = { 'H': '♥️', 'D': '♦️', 'C': '♣️', 'S': '♠️' };
   const STARTING_CHIPS = 1000;
   const CHIPS_STORAGE_KEY = 'pokerChips';
 
   // DOM Elements
+  const playerAreaEl = document.getElementById('playerArea'); // Added for active-player class
+  const bot1AreaEl = document.getElementById('bot1Area');   // Added for active-player class
   const playerCard1El = document.getElementById('playerCard1');
   const playerCard2El = document.getElementById('playerCard2');
   const playerChipsEl = document.getElementById('playerChips');
@@ -29,6 +32,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const communityCardEls = [communityCard1El, communityCard2El, communityCard3El, communityCard4El, communityCard5El];
 
   // Game State
+
+  function getEmojiCardRepresentation(card) {
+    if (!card || !card.rank || !card.suit) return '?'; // Handle empty/invalid card slot
+    let rankDisplay = card.rank;
+    if (card.rank === 'T') {
+        rankDisplay = '10';
+    }
+    return rankDisplay + SUIT_EMOJIS[card.suit];
+  }
+
   let deck;
   let playerCards = [];
   let bot1Cards = [];
@@ -144,8 +157,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     newRoundButton.style.display = 'none';
-    if (bot1Card1El) bot1Card1El.textContent = 'X';
-    if (bot1Card2El) bot1Card2El.textContent = 'X';
+    // Show card back emoji or 'X' if you prefer, for bot cards initially
+    if (bot1Card1El) bot1Card1El.textContent = '🂠'; 
+    if (bot1Card2El) bot1Card2El.textContent = '🂠';
     
     pokerMessageEl.textContent += " Your turn.";
     updateUI();
@@ -156,15 +170,11 @@ document.addEventListener('DOMContentLoaded', () => {
     bot1ChipsEl.textContent = bot1ChipCount;
     potSizeEl.textContent = potSize;
 
-    playerCard1El.textContent = playerCards.length > 0 ? `${playerCards[0].rank}${playerCards[0].suit}` : '?';
-    playerCard2El.textContent = playerCards.length > 1 ? `${playerCards[1].rank}${playerCards[1].suit}` : '?';
+    playerCard1El.textContent = getEmojiCardRepresentation(playerCards[0]);
+    playerCard2El.textContent = getEmojiCardRepresentation(playerCards[1]);
 
     communityCardEls.forEach((el, index) => {
-      if (communityCards[index]) {
-        el.textContent = `${communityCards[index].rank}${communityCards[index].suit}`;
-      } else {
-        el.textContent = '?';
-      }
+      el.textContent = getEmojiCardRepresentation(communityCards[index]);
     });
 
     // Action buttons logic
@@ -176,14 +186,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (gamePhase === 'showdown') {
         disableAllActions();
         newRoundButton.style.display = 'block';
-        if (bot1Card1El && bot1Cards.length > 0) bot1Card1El.textContent = `${bot1Cards[0].rank}${bot1Cards[0].suit}`;
-        if (bot1Card2El && bot1Cards.length > 1) bot1Card2El.textContent = `${bot1Cards[1].rank}${bot1Cards[1].suit}`;
+        if (bot1Card1El && bot1Cards.length > 0) bot1Card1El.textContent = getEmojiCardRepresentation(bot1Cards[0]);
+        if (bot1Card2El && bot1Cards.length > 1) bot1Card2El.textContent = getEmojiCardRepresentation(bot1Cards[1]);
     } else if (activePlayer === 0) { // Player's turn
+        // Keep bot cards hidden during player's turn unless already revealed
+        if (bot1Card1El) bot1Card1El.textContent = (gamePhase === 'showdown' || (bot1Cards[0] && bot1Cards[0].revealed)) ? getEmojiCardRepresentation(bot1Cards[0]) : '🂠';
+        if (bot1Card2El) bot1Card2El.textContent = (gamePhase === 'showdown' || (bot1Cards[1] && bot1Cards[1].revealed)) ? getEmojiCardRepresentation(bot1Cards[1]) : '🂠';
         enablePlayerActions();
         pokerMessageEl.textContent = `Your turn. Current bet to call: ${currentBet}. Pot: ${potSize}.`;
+    if(playerAreaEl) playerAreaEl.classList.add('active-player');
+    if(bot1AreaEl) bot1AreaEl.classList.remove('active-player');
     } else { // Bot's turn
         disableAllActions();
         pokerMessageEl.textContent = "Bot's turn...";
+    if(bot1AreaEl) bot1AreaEl.classList.add('active-player');
+    if(playerAreaEl) playerAreaEl.classList.remove('active-player');
     }
   }
   
@@ -437,8 +454,8 @@ document.addEventListener('DOMContentLoaded', () => {
     gamePhase = 'showdown'; // Ensure phase is set for UI
     
     // Reveal bot's cards in UI
-    if (bot1Card1El && bot1Cards.length > 0) bot1Card1El.textContent = `${bot1Cards[0].rank}${bot1Cards[0].suit}`;
-    if (bot1Card2El && bot1Cards.length > 1) bot1Card2El.textContent = `${bot1Cards[1].rank}${bot1Cards[1].suit}`;
+    if (bot1Card1El && bot1Cards.length > 0) bot1Card1El.textContent = getEmojiCardRepresentation(bot1Cards[0]);
+    if (bot1Card2El && bot1Cards.length > 1) bot1Card2El.textContent = getEmojiCardRepresentation(bot1Cards[1]);
 
     // Placeholder: Simple high card comparison (from player's 2 cards and bot's 2 cards only)
     // This is NOT a full poker hand evaluation.
@@ -491,6 +508,8 @@ document.addEventListener('DOMContentLoaded', () => {
     potSize = 0;
     gamePhase = 'showdown'; // End of round
     saveChips();
+    if(playerAreaEl) playerAreaEl.classList.remove('active-player');
+    if(bot1AreaEl) bot1AreaEl.classList.remove('active-player');
     updateUI();
     newRoundButton.style.display = 'block';
   }
@@ -501,6 +520,8 @@ document.addEventListener('DOMContentLoaded', () => {
     potSize = 0;
     gamePhase = 'showdown'; // End of round
     saveChips();
+    if(playerAreaEl) playerAreaEl.classList.remove('active-player');
+    if(bot1AreaEl) bot1AreaEl.classList.remove('active-player');
     updateUI();
     newRoundButton.style.display = 'block';
   }
