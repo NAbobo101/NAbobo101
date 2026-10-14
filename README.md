@@ -17,30 +17,30 @@
 
 ```bash
 nabobo@brasil:~$ whoami
-> NAbobo101 — dev full-stack 🇧🇷 movido a café, automação e curiosidade.
-> Full-stack dev 🇧🇷 powered by coffee, automation and curiosity.
+> NAbobo101, dev full-stack 🇧🇷 que vive de café e de automatizar o que dá trabalho.
+> Full-stack dev who runs on coffee and automates whatever gets tedious.
 
 nabobo@brasil:~$ cat about.txt
 [PT] Transformo problemas chatos em scripts, APIs e dashboards.
-     Bots de trade, scrapers, integrações, SaaS e agentes de IA.
+     Já fiz bots de trade, scrapers, integrações, SaaS e agentes de IA.
 [EN] I turn boring problems into scripts, APIs and dashboards.
-     Trading bots, scrapers, integrations, SaaS and AI agents.
+     So far: trading bots, scrapers, integrations, SaaS and AI agents.
 
 nabobo@brasil:~$ ls ~/skills
 automation/   apis/   data-science/   ai-agents/   web/   devops/   game-mods/
 
 nabobo@brasil:~$ uptime
-> 45+ repos deployed · 0 bugs (that I know of) · ∞ cups of coffee
+> up since 2023, 45+ repos, 0 bugs (que eu saiba)
 
 nabobo@brasil:~$ ./hire_me.sh --mode=collab
-[ OK ] Open to projects, freelas & collabs. Let's build something! 🚀
+[ OK ] aberto a freelas e parcerias · open to freelance and collabs
 ```
 
 ### `>>> import nabobo`
 
 ```python
 class NAbobo101:
-    """Brazilian dev. Builds things, breaks things, learns from both."""
+    """Brazilian dev. If it has to be done twice, it gets a script."""
 
     def __init__(self):
         self.location   = "Brasil 🇧🇷"
@@ -50,7 +50,7 @@ class NAbobo101:
         self.databases  = ["PostgreSQL", "MySQL", "Prisma"]
         self.devops     = ["Docker", "Linux", "GitHub Actions", "Grafana"]
         self.apis       = ["Shopify", "Notion", "IBGE", "Exchanges BTC/ETH"]
-        self.learning   = "always something new"
+        self.learning   = "always searching for new techs"
 
     def daily_routine(self):
         while alive:
@@ -95,7 +95,7 @@ me = NAbobo101()
 <img src="https://img.shields.io/badge/AI_Agents-0d1117?style=for-the-badge&logo=anthropic&logoColor=D97757"/>
 <img src="https://img.shields.io/badge/Web_Scraping-0d1117?style=for-the-badge&logo=scrapy&logoColor=00ff41"/>
 
-<h4>🗄️ Bancos de Dados · Databases</h4>
+<h4>🗄️ Bancos de dados · Databases</h4>
 <img src="https://img.shields.io/badge/PostgreSQL-0d1117?style=for-the-badge&logo=postgresql&logoColor=4169E1"/>
 <img src="https://img.shields.io/badge/MySQL-0d1117?style=for-the-badge&logo=mysql&logoColor=4479A1"/>
 <img src="https://img.shields.io/badge/Prisma-0d1117?style=for-the-badge&logo=prisma&logoColor=white"/>
@@ -121,8 +121,8 @@ me = NAbobo101()
 ## 🚀 `$ ls -la ~/projects`
 
 ```diff
-+ drwxr-xr-x  public       → open source, pode fuçar / feel free to explore
-- drwx------  classified   → private, mas dá pra contar o que faz 😉 / private, but here's the gist
++ drwxr-xr-x  public       → código aberto, pode fuçar / feel free to dig in
+- drwx------  classified   → privado, mas dá pra contar o que faz 😉 / private, here's what it does
 ```
 
 | 📂 Projeto | 🛠️ Stack | 📝 O que faz · What it does |
@@ -136,10 +136,10 @@ me = NAbobo101()
 | 🔒 **ftv-app / Saas-ftv-app** | `TypeScript` `React` `Python` | SaaS de futevôlei · Footvolley SaaS platform |
 | 🔒 **pelada-api** | `TypeScript` `Node.js` `Prisma` | API de gestão de peladas · Pickup soccer manager API |
 | 🔒 **dashboard_reports** | `Python` `Streamlit` `MySQL` | Dashboards de relatórios · Reporting dashboards |
-| 🔒 **grafana_monitoring** | `Grafana` `Docker` | Monitoramento e observabilidade · Monitoring stack |
+| 🔒 **grafana_monitoring** | `Grafana` `Docker` | Monitoramento com Grafana · Grafana monitoring |
 | 🔒 **integracao-shopify-api** | `Python` `Shopify API` | Integração de e-commerce com dashboard e entrega · E-commerce integration |
 | 🔒 **Stellar-api-cruzamento** | `Python` `IBGE API` | Cruza CEP × Censo BR para conhecer o público do e-comerce · ZIP code × Brazilian census to know more about the costumers |
-| 🔒 **sim_bet** | `Python` `Data` | Simulador de mercados sem risco · Risk-free market simulator |
+| 🔒 **sim_bet** | `Python` `Data` | Simula apostas em mercados reais sem gastar dinheiro · Bets on real markets without spending money |
 | 🔒 **pz-world-share** | `Python` `Lua` `Git` | Revezamento de host p/ Project Zomboid · PZ multiplayer host relay |
 
 ---
