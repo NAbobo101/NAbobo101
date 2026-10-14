@@ -137,11 +137,10 @@ me = NAbobo101()
 | 🔒 **pelada-api** | `TypeScript` `Node.js` `Prisma` | API de gestão de peladas · Pickup soccer manager API |
 | 🔒 **dashboard_reports** | `Python` `Streamlit` `MySQL` | Dashboards de relatórios · Reporting dashboards |
 | 🔒 **grafana_monitoring** | `Grafana` `Docker` | Monitoramento e observabilidade · Monitoring stack |
-| 🔒 **integracao-shopify-api** | `Python` `Shopify API` | Integração de e-commerce · E-commerce integration |
-| 🔒 **Stellar-api-cruzamento** | `Python` `IBGE API` | Cruza CEP × Censo BR · ZIP code × Brazilian census |
+| 🔒 **integracao-shopify-api** | `Python` `Shopify API` | Integração de e-commerce com dashboard e entrega · E-commerce integration |
+| 🔒 **Stellar-api-cruzamento** | `Python` `IBGE API` | Cruza CEP × Censo BR para conhecer o público do e-comerce · ZIP code × Brazilian census to know more about the costumers |
 | 🔒 **sim_bet** | `Python` `Data` | Simulador de mercados sem risco · Risk-free market simulator |
 | 🔒 **pz-world-share** | `Python` `Lua` `Git` | Revezamento de host p/ Project Zomboid · PZ multiplayer host relay |
-| 🔒 **7a0_image_version** | `TypeScript` | Versão visual do jogo 7a0 · Visual take on the 7a0 game |
 
 ---
 
