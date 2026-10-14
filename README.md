@@ -8,7 +8,6 @@
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2800&pause=900&color=00FF41&center=true&vCenter=true&multiline=false&width=720&height=50&lines=%3E+whoami;%3E+Dev+brasileiro+%F0%9F%87%A7%F0%9F%87%B7+%7C+Brazilian+developer;%3E+Python+%7C+TypeScript+%7C+Automa%C3%A7%C3%A3o+%7C+IA;%3E+bots%2C+APIs%2C+dashboards+%26+SaaS;%3E+sudo+make+coffee+%E2%98%95;%3E+always+searching+for+new+techs_" alt="typing"/>
 </a>
 
-<img src="https://komarev.com/ghpvc/?username=NAbobo101&color=00ff41&style=for-the-badge&label=VISITORS" alt="visitors"/>
 
 </div>
 
