@@ -9,7 +9,6 @@
 </a>
 
 <img src="https://komarev.com/ghpvc/?username=NAbobo101&color=00ff41&style=for-the-badge&label=VISITORS" alt="visitors"/>
-<img src="https://img.shields.io/github/followers/NAbobo101?style=for-the-badge&logo=github&logoColor=00ff41&label=FOLLOWERS&labelColor=0d1117&color=00ff41" alt="followers"/>
 
 </div>
 
